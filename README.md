@@ -1,6 +1,8 @@
 # Emboldened Birth — website
 
 > **Taking over?** Start with [TESSA-START-HERE.md](TESSA-START-HERE.md).
+>
+> **Live preview:** <https://tessamillerick.github.io/emboldened-birth-site/>
 
 A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, Lake County, California.
 
@@ -38,14 +40,23 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `robots.txt` | Preview-only block on search engines |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 
-## Publishing with GitHub Pages (when approved)
+## Published preview
 
-1. Create a repository for the site. A project repository such as `emboldened-birth-site` is fine; a custom domain can be added later.
-2. Commit these files to the `main` branch.
-3. In the repository settings, set **Pages → Build and deployment → Source** to **Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. Check the temporary `github.io` address on a phone and a computer before changing DNS.
+- **Live:** <https://tessamillerick.github.io/emboldened-birth-site/>
+- **Repository:** <https://github.com/tessamillerick/emboldened-birth-site>
+- **Pages:** deploys from `main`, folder `/ (root)`.
 
-The site uses relative links, so it works both at a `github.io/...` subpath and at the root of a custom domain.
+The site is currently a **noindex preview**: every page has a `noindex` tag and `robots.txt` blocks search engines.
+
+To update it, commit and push:
+
+```sh
+git add -A
+git commit -m "Describe the change"
+git push
+```
+
+GitHub Pages rebuilds automatically. The site uses relative links, so it works both at the `github.io/...` subpath and at the root of a custom domain.
 
 ## Before the site goes public
 

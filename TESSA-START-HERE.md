@@ -1,21 +1,27 @@
 # Tessa — start here
 
-This is your website, built as a plain static site for GitHub Pages. It currently exists only as a **local preview**. Nothing has been published to GitHub, and the custom domain and DNS have not been changed.
+Your website is live as a **preview**:
+
+- **Live preview:** <https://tessamillerick.github.io/emboldened-birth-site/>
+- **GitHub repository:** <https://github.com/tessamillerick/emboldened-birth-site>
+- **Local folder:** `/home/sean/emboldened-birth-site`
+
+The site is not searchable yet. Every page has a `noindex` tag, and `robots.txt` blocks search engines. The custom domain `emboldenedbirth.com` is still parked; no DNS changes were made, and Proton mail records were not touched.
 
 ## 1. See it
 
-The preview server is probably already running. Open:
+Open the live preview above, or preview locally:
 
 **http://127.0.0.1:8000**
 
-If it is not running, start it from this folder:
+If the local server is not running, start it from this folder:
 
 ```sh
 cd /home/sean/emboldened-birth-site
 python3 -m http.server 8000
 ```
 
-Then open <http://127.0.0.1:8000>. Stop the server with `Ctrl+C`.
+Stop it with `Ctrl+C`.
 
 ## 2. What is here
 
@@ -24,58 +30,28 @@ Then open <http://127.0.0.1:8000>. Stop the server with `Ctrl+C`.
 - No cookies, analytics, advertising trackers, or contact forms. Contact is by email and phone.
 - Fonts are self-hosted, so no requests go to Google Fonts.
 - The design uses the cream, sage, and blush palette and floral artwork from your business card.
-- The site is currently marked `noindex`, and `robots.txt` blocks search engines while it is a draft.
+- The site is currently a noindex preview, not a search-indexed public site.
 
-## 3. Publish under your GitHub account
+## 3. How to update the site
 
-This machine currently has **Sean's GitHub accounts** signed in. Add yours and switch to it before creating the repository.
+Edit the files in this folder, preview locally, then save and publish the change:
 
-1. Check who is signed in:
+```sh
+cd /home/sean/emboldened-birth-site
+git add -A
+git commit -m "Describe the change"
+git push
+```
 
-   ```sh
-   gh auth status
-   ```
+GitHub Pages rebuilds automatically after a push. It usually takes about a minute. Check the live preview afterward.
 
-2. Sign in as yourself. Choose GitHub.com, HTTPS, and “Login with a web browser”:
+Your GitHub account is active on this machine. You can confirm with:
 
-   ```sh
-   gh auth login
-   ```
+```sh
+gh auth status
+```
 
-3. Switch to your account:
-
-   ```sh
-   gh auth switch --user tessamillerick
-   ```
-
-4. Set your Git identity for future commits. A commit email is visible in a public repository, so use the GitHub **noreply** address from Settings → Emails if you want to keep your personal address private:
-
-   ```sh
-   git config user.name "Tessa Millerick"
-   git config user.email "YOUR_GITHUB_NOREPLY_EMAIL"
-   ```
-
-5. Create a **public** repository under your account and push the site:
-
-   ```sh
-   cd /home/sean/emboldened-birth-site
-   gh repo create tessamillerick/emboldened-birth-site --public --source=. --remote=origin --push
-   ```
-
-6. Turn on GitHub Pages:
-
-   - Open `https://github.com/tessamillerick/emboldened-birth-site/settings/pages`
-   - Source: **Deploy from a branch**
-   - Branch: **main**, folder: **/ (root)**
-   - Save.
-
-7. Wait a minute, then open:
-
-   **https://tessamillerick.github.io/emboldened-birth-site/**
-
-   It should look like the local preview. It will stay out of search results until you remove the `noindex` tag.
-
-If you would rather not use the command line, create an empty public repository on github.com and add `SRMillerick` as an **Admin** collaborator. Do not share your password or a personal access token in chat.
+Your local Git identity is already set to `Tessa Millerick <tessamillerick@users.noreply.github.com>`, so future commits use your GitHub noreply address instead of your personal email.
 
 ## 4. Before the site goes public and searchable
 
@@ -96,21 +72,28 @@ If you would rather not use the command line, create an empty public repository 
 - See recent commits with `git log --oneline`.
 - Undo an uncommitted edit with `git restore <file>`.
 - GitHub Pages build status is in **Settings → Pages** and the **Actions** tab.
+- If a push fails, check `gh auth status` and switch to your account with `gh auth switch --user tessamillerick`.
 - Do not change DNS as a troubleshooting step.
 
 ## 6. Account cleanup
 
-After your own GitHub account is working and the repository is pushed, Sean should remove his accounts from this machine if he no longer needs them here:
+Your GitHub account is active. Sean's accounts are still stored on this machine:
+
+- `SRMillerick`
+- `sean-adoraway`
+
+After you are comfortable with the repository and your own login, you can remove them:
 
 ```sh
 gh auth logout --hostname github.com --user SRMillerick
 gh auth logout --hostname github.com --user sean-adoraway
 ```
 
-Do not do this until your account and the repository are working.
+Do not remove them until your account and the repository are working. The first setup commits were authored with Sean's email; future commits use your name and GitHub noreply address. Rewriting the old commits is a separate step if you ever want it.
 
 ## 7. Where things live
 
 - Website: `/home/sean/emboldened-birth-site`
+- Live preview: <https://tessamillerick.github.io/emboldened-birth-site/>
 - Planning handoff: `/home/sean/emboldened-birth-handoff-2026-10-27`
 - Private research repository: `/home/sean/doula-cert-ca`
