@@ -46,7 +46,7 @@ The site uses relative links, so it works both at a `github.io/...` subpath and 
 
 ## Before the site goes public
 
-- [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 deposit / $500 balance. These are draft business decisions from the practice notes.
+- [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 deposit / $500 balance. Confirm these before launch.
 - [ ] Decide whether to advertise a **free** initial consultation. The draft calls it an initial consultation, not free.
 - [ ] Confirm the service-area list (Hidden Valley Lake, Lakeport, Clearlake, Middletown, Kelseyville, Lower Lake) and whether travel outside Lake County is offered.
 - [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not add “certified” until certification is complete.
@@ -66,6 +66,6 @@ The site uses relative links, so it works both at a `github.io/...` subpath and 
 
 ## Design notes
 
-The palette, serif wordmark, and floral bands come from the existing business card (`doula-cert-ca/brand/business-card.svg`). The floral bands are extracted from that card as standalone SVG files. The type pairing is Playfair Display for headings and Inter for labels and body copy.
+The palette, serif wordmark, and floral bands come from the existing Emboldened Birth business card. The floral bands are extracted from that card as standalone SVG files. The type pairing is Playfair Display for headings and Inter for labels and body copy.
 
 The brand direction is editorial and understated: cream paper, sage and blush botanicals, generous white space, and no exclamation points. It borrows the *feel* of a magazine like Garden & Gun without copying any logo, type lockup, or trade dress.
