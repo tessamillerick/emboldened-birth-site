@@ -45,7 +45,7 @@ This machine currently has **Sean's GitHub accounts** signed in. Add yours and s
 3. Switch to your account:
 
    ```sh
-   gh auth switch --user YOUR_USERNAME
+   gh auth switch --user tessamillerick
    ```
 
 4. Set your Git identity for future commits. A commit email is visible in a public repository, so use the GitHub **noreply** address from Settings → Emails if you want to keep your personal address private:
@@ -59,19 +59,19 @@ This machine currently has **Sean's GitHub accounts** signed in. Add yours and s
 
    ```sh
    cd /home/sean/emboldened-birth-site
-   gh repo create YOUR_USERNAME/emboldened-birth-site --public --source=. --remote=origin --push
+   gh repo create tessamillerick/emboldened-birth-site --public --source=. --remote=origin --push
    ```
 
 6. Turn on GitHub Pages:
 
-   - Open `https://github.com/YOUR_USERNAME/emboldened-birth-site/settings/pages`
+   - Open `https://github.com/tessamillerick/emboldened-birth-site/settings/pages`
    - Source: **Deploy from a branch**
    - Branch: **main**, folder: **/ (root)**
    - Save.
 
 7. Wait a minute, then open:
 
-   **https://YOUR_USERNAME.github.io/emboldened-birth-site/**
+   **https://tessamillerick.github.io/emboldened-birth-site/**
 
    It should look like the local preview. It will stay out of search results until you remove the `noindex` tag.
 
