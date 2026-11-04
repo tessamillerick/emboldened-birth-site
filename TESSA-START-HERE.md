@@ -48,11 +48,11 @@ This machine currently has **Sean's GitHub accounts** signed in. Add yours and s
    gh auth switch --user YOUR_USERNAME
    ```
 
-4. Set your Git identity for future commits in this repository:
+4. Set your Git identity for future commits. A commit email is visible in a public repository, so use the GitHub **noreply** address from Settings → Emails if you want to keep your personal address private:
 
    ```sh
    git config user.name "Tessa Millerick"
-   git config user.email "tessa@emboldenedbirth.com"
+   git config user.email "YOUR_GITHUB_NOREPLY_EMAIL"
    ```
 
 5. Create a **public** repository under your account and push the site:
