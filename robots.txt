@@ -1,0 +1,6 @@
+# PREVIEW ONLY: this blocks search engines while the site is a draft.
+# Before launch, replace this file with:
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /
