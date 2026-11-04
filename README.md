@@ -1,5 +1,7 @@
 # Emboldened Birth — website
 
+> **Taking over?** Start with [TESSA-START-HERE.md](TESSA-START-HERE.md).
+
 A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, Lake County, California.
 
 The site is intentionally simple:
@@ -29,6 +31,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `contact.html` | Email, phone, what to include, next steps |
 | `privacy.html` | Plain-language privacy note |
 | `404.html` | GitHub Pages not-found page |
+| `TESSA-START-HERE.md` | Plain-language takeover and publishing guide |
 | `assets/css/styles.css` | All styling |
 | `assets/fonts/` | Self-hosted WOFF2 fonts + OFL licenses |
 | `assets/img/` | Floral bands, sprig, favicon, social preview image |
