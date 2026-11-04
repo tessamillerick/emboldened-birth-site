@@ -4,7 +4,7 @@
 >
 > **Live preview:** <https://tessamillerick.github.io/emboldened-birth-site/>
 
-A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, Lake County, California.
+A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, serving Lake and Sonoma Counties, California.
 
 The site is intentionally simple:
 
@@ -62,7 +62,7 @@ GitHub Pages rebuilds automatically. The site uses relative links, so it works b
 
 - [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 deposit / $500 balance. Confirm these before launch.
 - [ ] Decide whether to advertise a **free** initial consultation. The draft calls it an initial consultation, not free.
-- [ ] Confirm the service-area list (Hidden Valley Lake, Lakeport, Clearlake, Middletown, Kelseyville, Lower Lake) and whether travel outside Lake County is offered.
+- [x] Service area confirmed: **Lake and Sonoma Counties**. The site lists the Lake County cities and Sonoma County by arrangement. Confirm whether travel beyond those counties is offered.
 - [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not add “certified” until certification is complete.
 - [ ] Confirm the backup-doula sentence (“Before services begin, I’ll name a backup doula…”).
 - [ ] Add real photographs if desired. The current design uses only the business-card floral artwork; no stock photos or client images are used.

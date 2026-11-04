@@ -56,7 +56,7 @@ Your local Git identity is already set to `Tessa Millerick <tessamillerick@users
 ## 4. Before the site goes public and searchable
 
 - Confirm the services and the **$750 introductory rate**, including the $250 deposit and $500 balance.
-- Confirm the service area list.
+- Service area confirmed: **Lake and Sonoma Counties**. Confirm whether travel beyond those counties is offered.
 - Confirm the training wording: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not claim certification until it is complete.
 - Confirm the backup-doula sentence.
 - Decide whether to advertise a **free** initial consultation. The draft calls it an initial consultation, not free.
