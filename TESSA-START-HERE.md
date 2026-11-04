@@ -48,21 +48,28 @@ This machine currently has **Sean's GitHub accounts** signed in. Add yours and s
    gh auth switch --user YOUR_USERNAME
    ```
 
-4. Create a **public** repository under your account and push the site:
+4. Set your Git identity for future commits in this repository:
+
+   ```sh
+   git config user.name "Tessa Millerick"
+   git config user.email "tessa@emboldenedbirth.com"
+   ```
+
+5. Create a **public** repository under your account and push the site:
 
    ```sh
    cd /home/sean/emboldened-birth-site
    gh repo create YOUR_USERNAME/emboldened-birth-site --public --source=. --remote=origin --push
    ```
 
-5. Turn on GitHub Pages:
+6. Turn on GitHub Pages:
 
    - Open `https://github.com/YOUR_USERNAME/emboldened-birth-site/settings/pages`
    - Source: **Deploy from a branch**
    - Branch: **main**, folder: **/ (root)**
    - Save.
 
-6. Wait a minute, then open:
+7. Wait a minute, then open:
 
    **https://YOUR_USERNAME.github.io/emboldened-birth-site/**
 
