@@ -1079,7 +1079,17 @@ h4 {
   }
 
   .site-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding-block: 0.25rem;
     font-size: 0.66rem;
+  }
+
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
   }
 
   .break-mobile {
@@ -1112,6 +1122,11 @@ h4 {
   .btn {
     width: 100%;
   }
+
+  .contact-method a,
+  .contact-band__details a {
+    font-size: 1.15rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1124,12 +1139,6 @@ h4 {
   }
 }
 
-@media (max-width: 420px) {
-  .contact-method a,
-  .contact-band__details a {
-    font-size: 1.15rem;
-  }
-}
 
 @media (max-width: 360px) {
   .hero h1 {
