@@ -62,7 +62,7 @@ The home page and the About page each have a framed spot for your photo. Until y
 3. In `index.html` and `about.html`, find the comment that starts with `PORTRAIT:`. On the line below it, change
 
    ```html
-   <img src="assets/img/botanical-bouquet.webp" alt="" width="883" height="1103" fetchpriority="high">
+   <img src="assets/img/botanical-bouquet.webp" alt="" width="881" height="1102" fetchpriority="high">
    ```
 
    to

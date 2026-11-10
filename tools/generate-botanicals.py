@@ -360,13 +360,16 @@ class Painter:
 
     def branch(self, start, heading, length, kind="round", curl=0.0, droop=0.0, size=60.0,
                stem_w=(5.0, 1.4), strength=0.55, skip=0.1, pods=0, berries=0, glaze=0.3,
-               pencil=0.0, start_u=None, pairs=None, sag=0.0):
+               pencil=0.0, start_u=None, pairs=None, sag=0.0, root=None):
         """A eucalyptus stem with leaves.
 
         kind: "round" (silver-dollar pairs), "baby" (small round leaves),
         "willow" (alternate narrow leaves) or "seeded" (narrow leaves + seed cups).
         heading: degrees, 0 = right, 90 = down. curl: total degrees of clockwise turn.
         sag: how strongly the stem bends down under its own weight (0-1).
+        root: optional function that takes the stem's path and returns the path
+        to paint instead, e.g. to run the stem down through a tied bundle. It
+        must not use self.rng, so the leaves paint exactly as without it.
         """
         rng = self.rng
         u_ = self.u
@@ -382,7 +385,7 @@ class Painter:
                 a = toward(a, math.pi / 2, sag * 2.2 / n)
             pts.append(pts[-1] + step * np.array([math.cos(a), math.sin(a)], np.float32))
         pts = np.array(pts)
-        self.stem(pts, *stem_w)
+        self.stem(root(pts) if root is not None else pts, *stem_w)
 
         def tangent(i):
             i = min(max(i, 1), len(pts) - 2)
@@ -467,24 +470,67 @@ class Painter:
                       edge=0.6, shade=0.1, vein=0.0, pencil=pencil * 0.6)
         return pts
 
-    def twine(self, center, spread):
-        """Copper twine wrapped around a bundle of stems, with two loose ends."""
+    def twine(self, center, radius, wraps=5, pitch=3.9):
+        """Copper twine wound tightly round a bundle of stems, knotted at the
+        front, with two loose ends. The stems are lifted under each turn first,
+        so the twine reads as lying on top of them."""
         rng = self.rng
-        cx, cy = center
         u = self.u
-        for k in range(3):
-            y = cy + (k - 1) * 7 * u + rng.normal(0, 0.8)
-            wrap = np.array([[cx - spread, y + 3 * u], [cx, y - 1.5 * u], [cx + spread, y - 4 * u]], np.float32)
-            curve = np.array([wrap[0] * (1 - s) ** 2 + 2 * wrap[1] * s * (1 - s) + wrap[2] * s ** 2
-                              for s in np.linspace(0, 1, 24)], np.float32)
-            self.line(curve, 3.0 * u, "copper", 0.75)
-        for direction in (-1, 1):
-            pts = []
-            for s in np.linspace(0, 1, 40):
-                x = cx + direction * (6 + 38 * s) * u + direction * 6 * u * math.sin(s * 5)
-                y = cy + 6 * u + 70 * s * u + 8 * u * math.sin(s * 3.5 + direction)
-                pts.append((x, y))
-            self.line(np.array(pts, np.float32), 2.4 * u, "copper", 0.6)
+        cx, cy = center
+        r, pitch = radius * u, pitch * u
+        top = cy - wraps * pitch / 2
+        xs = np.linspace(-r, r, 28, dtype=np.float32)
+        front = np.sqrt(np.clip(1 - (xs / r) ** 2, 0, 1))
+        turns = []
+        for k in range(wraps):
+            # Seen from slightly above, each turn dips at the front of the
+            # bundle and climbs gently round it, and narrows where it turns away.
+            mid = top + (k + 0.5) * pitch + 0.09 * xs + 1.4 * u * (front - 0.6) + rng.normal(0, 0.25 * u)
+            half = 0.46 * pitch * (0.72 + 0.28 * front)
+            spine = np.stack([cx + xs, mid], 1)
+            outline = np.concatenate([np.stack([cx + xs, mid - half], 1),
+                                      np.stack([cx + xs, mid + half], 1)[::-1]])
+            turns.append((outline, spine))
+
+        for outline, _ in turns:
+            self.lift_under(fill_path, outline, 0.85)
+        for outline, spine in turns:
+            # The lifted line along each turn is its highlight, so it reads as cord.
+            self.wash(outline, (spine[0], spine[-1]), pitch, ("copper", "terracotta"), rng.uniform(0.4, 0.5),
+                      edge=0.9, shade=0.3, vein_line=spine - np.array([0, 0.3 * pitch], np.float32),
+                      vein=0.5, grain=0.5, soften=0.5)
+
+        knot = np.array([cx + 0.3 * r, top + 0.55 * wraps * pitch], np.float32)
+        # Two loose ends: one falls away to the right, clear of the stems; the
+        # other hangs in front of them. Each has frayed fibres at its tip.
+        for reach, fall, sway in ((26, 56, 1.8), (-13, 68, 2.4)):
+            s = np.linspace(0, 1, 40, dtype=np.float32)
+            x = knot[0] + reach * u * (0.7 * s + 0.3 * s ** 2) + sway * u * np.sin(3.2 * s)
+            y = knot[1] + 2 * u + fall * u * s
+            end = np.stack([x, y], 1)
+            self.lift_under(lambda pts: stroke_path(pts, 3.2 * u), end, 0.75)
+            self.stem(end, 3.1, 2.1, pigments=("copper", "terracotta"), strength=0.58)
+            tip, d = end[-1], end[-1] - end[-4]
+            a = math.atan2(d[1], d[0])
+            for spread in (-0.35, 0.05, 0.4):
+                fibre = rng.uniform(3.5, 6) * u
+                self.line(np.stack([tip, tip + fibre * np.array([math.cos(a + spread), math.sin(a + spread)],
+                                                                np.float32)]), 0.7 * u, "copper", 0.4)
+        for dx, dy, rx, ry, rot in ((0, 0, 5.6, 4.3, 0.5), (3.4, 2.9, 4.1, 3.3, -0.4)):
+            c = knot + np.array([dx, dy], np.float32) * u
+            body = self.ellipse(c, rx * u, ry * u, rot)
+            self.lift_under(fill_path, body, 0.7)
+            self.wash(body, (c - [rx * u, 0], c + [rx * u, 0]), 2 * rx * u, ("copper", "terracotta"), 0.62,
+                      edge=1.0, shade=0.35, grain=0.5, soften=0.5)
+
+    def lift_under(self, shape, pts, amount):
+        """Lift pigment under a shape before painting it, so it reads as lying
+        on top. `shape` is fill_path or a stroke_path-like function of points."""
+        pts = np.asarray(pts, np.float32)
+        x0, y0, x1, y1 = self._bounds(pts, 6 * self.u)
+        off = np.array([x0 - self.m, y0 - self.m], np.float32)
+        cover = blur(raster(shape(pts - off), x1 - x0, y1 - y0), 0.6 * self.u)
+        self.D[y0:y1, x0:x1] *= (1 - amount * cover)[..., None]
 
     # -- output ---------------------------------------------------------------
 
@@ -539,27 +585,95 @@ class Painter:
 
 # Compositions -------------------------------------------------------------------
 
+def _bezier(p0, p1, p2, p3, step):
+    n = max(4, int(np.hypot(*(p3 - p0)) / step))
+    s = np.linspace(0, 1, n, dtype=np.float32)[:, None]
+    return (1 - s) ** 3 * p0 + 3 * (1 - s) ** 2 * s * p1 + 3 * (1 - s) * s ** 2 * p2 + s ** 3 * p3
+
+
+def tied_bundle(stems, tie, scale, waist=9.0, band=22.0):
+    """A hand-tied bunch: every stem passes through the tie in its own place.
+
+    Above the twine each stem flares out to its branch; below, it splays a
+    little to a cut end of its own length. Returns (roots, ends): `roots` for
+    Painter.branch(root=...), and the stem ends below the tie as
+    (path, widths) to paint after the branches. The two halves meet under
+    the twine, which hides the join. Uses its own random numbers, so the
+    branches' leaves paint exactly as they would without it.
+    """
+    rng = np.random.default_rng(1011)
+    step = 2.5 * scale
+    order = np.argsort([heading for _, heading, *_ in stems], kind="stable")
+    slots = np.linspace(-waist, waist, len(stems)) * scale
+    neck_y = tie[1] - (0.5 * band - 2) * scale  # just inside the twine's top edge
+    roots, ends = [None] * len(stems), [None] * len(stems)
+    for place, i in enumerate(order):
+        _, heading, length, _, options = stems[i]
+        lean = heading + 90  # degrees from upright; negative leans left
+        x = tie[0] + slots[place]
+        middle = np.array([x, tie[1]], np.float32)
+
+        # Below the tie: nearly straight, bowed a touch outward, cut at its own length.
+        down = math.radians(90 - 0.22 * lean + rng.normal(0, 2.5))
+        sink = np.array([math.cos(down), math.sin(down)], np.float32)
+        cut = middle + rng.uniform(62, 92) * scale * sink
+        outward = np.array([-sink[1], sink[0]], np.float32)
+        if outward[0] * lean < 0:
+            outward = -outward
+        s = np.linspace(0, 1, max(4, int(np.hypot(*(middle - cut)) / step)), dtype=np.float32)[:, None]
+        w0 = options.get("stem_w", (5.0, 1.4))[0]
+        ends[i] = (middle + s * (cut - middle) + 1.5 * scale * np.sin(np.pi * s) * outward, (0.9 * w0, 0.95 * w0))
+
+        # Above the tie: up out of the twine, then curving into the branch below its first leaves.
+        join = 0.8 * options.get("start_u", 0.1) * length * scale
+        roots[i] = _tied_root(middle, np.array([x, neck_y], np.float32), lean, join, step)
+    return roots, ends
+
+
+def _tied_root(middle, neck, lean, join, step):
+    rise = math.radians(-90 + 0.6 * lean)
+    rise = np.array([math.cos(rise), math.sin(rise)], np.float32)
+
+    def root(pts):
+        along = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(pts, axis=0).T))])
+        k = int(np.clip(np.searchsorted(along, join), 2, len(pts) - 3))
+        tangent = pts[k + 1] - pts[k - 1]
+        tangent = tangent / np.linalg.norm(tangent)
+        n = max(3, int(np.hypot(*(neck - middle)) / step))
+        inside = middle + np.linspace(0, 1, n, dtype=np.float32)[:, None] * (neck - middle)
+        span = np.hypot(*(pts[k] - neck))
+        flare = _bezier(neck, neck + 0.4 * span * rise, pts[k] - 0.4 * span * tangent, pts[k], step)
+        return np.concatenate([inside[:-1], flare[:-1], pts[k:]]).astype(np.float32)
+
+    return root
+
+
 def bouquet(scale):
     """A small hand-tied bunch: the placeholder print inside the portrait frame."""
     p = Painter(round(1000 * scale), round(1250 * scale), seed=11, unit=scale)
     c = np.array([500, 1065], np.float32) * scale
-    for dx, ang in ((-14, 101), (-5, 95), (5, 89), (14, 83)):
-        a = math.radians(ang)
-        base = c + np.array([dx * scale, 0])
-        p.stem(np.array([base + s * 110 * scale * np.array([math.cos(a), math.sin(a)]) for s in np.linspace(0, 1, 30)]),
-               4.6, 3.6, pigments=("stem_green", "stem"))
-    kw = dict(pencil=0.14)
-    p.branch(c, -95, 860, "round", curl=18, size=80, start_u=0.14, stem_w=(5.2, 1.4), **kw)
-    p.branch(c, -118, 700, "round", curl=-22, droop=0.1, size=70, start_u=0.15, stem_w=(4.6, 1.3), **kw)
-    p.branch(c + [5 * scale, 0], -70, 560, "willow", curl=8, droop=0.25, size=70, start_u=0.16, sag=0.04, **kw)
-    p.branch(c + [-5 * scale, 0], -132, 460, "willow", curl=-14, droop=0.3, size=62, start_u=0.2, sag=0.05, **kw)
-    p.branch(c, -82, 620, "seeded", curl=10, droop=0.2, size=58, start_u=0.22, **kw)
-    p.branch(c, -104, 560, "baby", curl=-6, size=44, start_u=0.24, stem_w=(3.6, 1.2), **kw)
-    p.branch(c + [3 * scale, 0], -48, 400, "round", curl=22, droop=0.3, size=52, start_u=0.25,
-             stem_w=(3.4, 1.2), **kw)
-    p.branch(c + [-3 * scale, 0], -150, 340, "round", curl=-20, droop=0.3, size=50, start_u=0.25,
-             stem_w=(3.2, 1.2), **kw)
-    p.twine(c + [0, 18 * scale], 20 * scale)
+    # Earlier versions painted four stub stems here first, using 4 x 7 random
+    # numbers. Draw them anyway so every branch above keeps its painting.
+    p.rng.uniform(-1, 1, 4 * 7)
+    stems = [  # (offset from c, heading, length, kind, options)
+        ((0, 0), -95, 860, "round", dict(curl=18, size=80, start_u=0.14, stem_w=(5.2, 1.4))),
+        ((0, 0), -118, 700, "round", dict(curl=-22, droop=0.1, size=70, start_u=0.15, stem_w=(4.6, 1.3))),
+        ((5, 0), -70, 560, "willow", dict(curl=8, droop=0.25, size=70, start_u=0.16, sag=0.04)),
+        ((-5, 0), -132, 460, "willow", dict(curl=-14, droop=0.3, size=62, start_u=0.2, sag=0.05)),
+        ((0, 0), -82, 620, "seeded", dict(curl=10, droop=0.2, size=58, start_u=0.22)),
+        ((0, 0), -104, 560, "baby", dict(curl=-6, size=44, start_u=0.24, stem_w=(3.6, 1.2))),
+        ((3, 0), -48, 400, "round", dict(curl=22, droop=0.3, size=52, start_u=0.25, stem_w=(3.4, 1.2))),
+        ((-3, 0), -150, 340, "round", dict(curl=-20, droop=0.3, size=50, start_u=0.25, stem_w=(3.2, 1.2))),
+    ]
+    tie = c + np.array([0, 4], np.float32) * scale
+    wraps, pitch = 6, 4.6
+    roots, ends = tied_bundle(stems, tie, scale, band=wraps * pitch)
+    for (offset, heading, length, kind, options), root in zip(stems, roots):
+        p.branch(c + np.array(offset, np.float32) * scale, heading, length, kind, pencil=0.14, root=root,
+                 **options)
+    for path, widths in ends:
+        p.stem(path, *widths, pigments=("stem", "pod"), strength=0.68)
+    p.twine(tie, 14, wraps, pitch)
     return p
 
 
