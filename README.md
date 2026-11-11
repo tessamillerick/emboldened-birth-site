@@ -36,7 +36,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `TESSA-START-HERE.md` | Plain-language takeover and publishing guide |
 | `assets/css/styles.css` | All styling |
 | `assets/fonts/` | Self-hosted WOFF2 fonts + OFL licenses |
-| `assets/img/` | Original watercolor botanicals (`botanical-*.webp`, plus larger `botanical-corner-tr-lg.webp` and `botanical-corner-bl-lg.webp` for wide screens), favicon, social preview image (`og-image.jpg`) |
+| `assets/img/` | Original watercolor botanicals (`botanical-*.webp`, plus larger `botanical-corner-tr-lg.webp` and `botanical-corner-bl-lg.webp` for wide screens), the logo's mark (`logo-mark.svg`, and `logo-mark-on-green.svg` for the footer), browser-tab icons (`favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`), social preview image (`og-image.jpg`) |
 | `tools/generate-botanicals.py` | Paints the botanical artwork (see Design notes) |
 | `tools/make-og-image.py` | Rebuilds the social preview image, `og-image.jpg` (see Design notes) |
 | `tools/stamp-css-version.py` | Updates the `?v=` version tag on every page's stylesheet link (run after changing `styles.css`) |
@@ -93,6 +93,7 @@ The design follows the business card and the visual-direction notes in the priva
 - **Contact bar.** On phones and tablets (below 1080 px), Home, About and Services have a bar at the bottom of the screen with Email, Text and Call. It slides in once the visitor starts scrolling; where a browser cannot do that, or the visitor prefers reduced motion, it is simply always there. Pages that use it have `<body class="has-contact-bar">`.
 - **One framed moment per page.** The closing card near the foot of Home, About and Services (`.cta__card`) carries the business card's open frame: two brass corners where the eucalyptus leaves room (top left and bottom right), with no full border. On wide screens they keep the card's proportions; on narrow screens, where the text runs nearly edge to edge, they stay in the space above and below it. Everything else is open, with single rules at most.
 - **The arch.** The portrait frame on Home and About is an arch (4:5, rounded top). A photo fills it edge to edge.
+- **The logo.** The logo's mark, a eucalyptus stem growing up inside an open arch, sits beside the wordmark in the header, so the two read as the horizontal logo while the name stays real text. In its deep green colours it sits above the wordmark in the footer, and a heavier version drawn for small sizes is the browser-tab icon. The icon links end in `?v=arch` so browsers drop the old icon; change that tag if the icons change again.
 - **Motion is CSS only:** a gentle rise as blocks scroll into view (`reveal`), page cross-fades, and sliding FAQ answers. All of it is switched off for visitors who ask for reduced motion.
 
 Every text color meets WCAG AA contrast on its background. On the pale papers, sage and brass are used only for decoration; on the deep green, a lighter brass (`--brass-on-dark`) is used for small text.

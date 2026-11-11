@@ -354,10 +354,29 @@ h2 + p {
 
 .brand {
   display: flex;
-  flex-direction: column;
-  gap: 0.28rem;
+  align-items: center;
+  gap: 0.8rem;
   line-height: 1;
   text-decoration: none;
+}
+
+/* The logo's arch mark, as tall as the two lines of the wordmark beside it. The arch's
+   legs sit 10.3% of its height inside the drawing, so it is pulled left by that much to line
+   up with the page's left edge. */
+.brand-mark {
+  --mark-h: clamp(3.1rem, 2.75rem + 1vw, 3.55rem);
+  flex: none;
+  width: auto;
+  height: var(--mark-h);
+  margin-left: calc(var(--mark-h) * -0.103);
+}
+
+/* Name over byline, left-aligned beside the mark as in the horizontal logo. */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  text-align: left;
 }
 
 .brand-name {
@@ -1359,6 +1378,14 @@ a.contact-method:hover .contact-method__go::after {
   border-bottom: 1px solid var(--rule-on-dark);
 }
 
+/* The logo's mark in its deep green colours, above the wordmark, its arch lined up with the "E". */
+.footer-mark {
+  --mark-h: 4.25rem;
+  width: auto;
+  height: var(--mark-h);
+  margin: 0 0 1.1rem calc(var(--mark-h) * -0.103);
+}
+
 .footer-brand {
   margin-bottom: 0.3rem;
   color: var(--on-dark);
@@ -1808,6 +1835,7 @@ a.contact-method:hover .contact-method__go::after {
   .cta__art,
   .portrait,
   .not-found__art,
+  .footer-mark,
   .footer-grid nav {
     display: none;
   }
