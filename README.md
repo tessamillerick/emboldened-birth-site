@@ -38,6 +38,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `assets/fonts/` | Self-hosted WOFF2 fonts + OFL licenses |
 | `assets/img/` | Original watercolor botanicals (`botanical-*.webp`, plus larger `botanical-corner-tr-lg.webp` and `botanical-corner-bl-lg.webp` for wide screens), favicon, social preview image (`og-image.jpg`) |
 | `tools/generate-botanicals.py` | Paints the botanical artwork (see Design notes) |
+| `tools/make-og-image.py` | Rebuilds the social preview image, `og-image.jpg` (see Design notes) |
 | `robots.txt` | Preview-only block on search engines |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 
@@ -87,7 +88,7 @@ The design follows the business card and the visual-direction notes in the priva
 - **Top bar.** A thin deep green strip on every page: "Free first consultation" (a link to Contact) and the service area, which is hidden on narrow phones.
 - **Header.** Stays at the top of the screen from 1080 px wide, with a "Book a free consultation" button (not on the Contact page). Below that it scrolls away.
 - **Contact bar.** On phones and tablets (below 1080 px), Home, About and Services have a bar at the bottom of the screen with Email, Text and Call. It slides in once the visitor starts scrolling; where a browser cannot do that, or the visitor prefers reduced motion, it is simply always there. Pages that use it have `<body class="has-contact-bar">`.
-- **One framed moment per page.** The business card's double rule frames only the closing card near the foot of Home, About and Services (`.cta__card`). Everything else is open, with single rules at most.
+- **One framed moment per page.** The closing card near the foot of Home, About and Services (`.cta__card`) carries the business card's open frame: two brass corners where the eucalyptus leaves room (top left and bottom right), with no full border. On wide screens they keep the card's proportions; on narrow screens, where the text runs nearly edge to edge, they stay in the space above and below it. Everything else is open, with single rules at most.
 - **The arch.** The portrait frame on Home and About is an arch (4:5, rounded top). A photo fills it edge to edge.
 - **Motion is CSS only:** a gentle rise as blocks scroll into view (`reveal`), page cross-fades, and sliding FAQ answers. All of it is switched off for visitors who ask for reduced motion.
 
@@ -106,5 +107,7 @@ python3 tools/generate-botanicals.py --scale 1.8 --suffix=-lg --only botanical-c
 Write `--suffix=-lg` with the equals sign; with a space, the leading hyphen is read as another option. Phones still load the smaller corners through `srcset`.
 
 It needs Python 3 with numpy, Pillow (with WebP), and pycairo. Change a seed or a composition in the script to paint new variations.
+
+The social preview image, `assets/img/og-image.jpg` (1200 × 630), shows the business card's front, open frame included, on the closing card's oat ground. `python3 tools/make-og-image.py` rebuilds it with headless Chrome (`google-chrome-stable`) and Pillow. Run it again after changing the wordmark, the colors or the corner paintings.
 
 The voice stays editorial and understated: generous white space and no exclamation points. It borrows the *feel* of a magazine like Garden & Gun without copying any logo, type lockup, or trade dress.

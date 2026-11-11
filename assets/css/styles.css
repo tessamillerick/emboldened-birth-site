@@ -1181,18 +1181,41 @@ a.contact-method:hover .contact-method__go::after {
   max-width: 58rem;
   margin-inline: auto;
   padding: clamp(4rem, 9vw, 6.5rem) clamp(1.5rem, 9vw, 7.5rem);
-  border: 1px solid var(--rule);
   background: var(--paper-card);
   box-shadow: 0 30px 60px -45px rgba(58, 66, 53, 0.5);
   text-align: center;
 }
 
-.cta__card::before {
+/* The business card's open frame: two brass corners on the corners the
+   eucalyptus leaves free (top left, bottom right) instead of a full rule.
+   Same proportions as the card: set in from the edges by 6.2% of the card's
+   width (percentage margins are measured from the width, even top and
+   bottom), each arm 23% of the card's width or height. */
+.cta__card::before,
+.cta__card::after {
+  --corner-inset: clamp(1.25rem, 6.2%, 3.5rem);
   position: absolute;
-  inset: 0.6rem;
-  border: 1px solid var(--rule-inner);
+  width: clamp(4.5rem, 23%, 14rem);
+  height: clamp(3rem, 23%, 8.5rem);
+  border: 0 solid var(--rule);
   content: "";
   pointer-events: none;
+}
+
+.cta__card::before {
+  top: 0;
+  left: 0;
+  margin: var(--corner-inset) 0 0 var(--corner-inset);
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.cta__card::after {
+  right: 0;
+  bottom: 0;
+  margin: 0 var(--corner-inset) var(--corner-inset) 0;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
 }
 
 .cta__art {
@@ -1635,6 +1658,14 @@ a.contact-method:hover .contact-method__go::after {
     padding-bottom: calc(var(--art-bl) * 0.62 + 1rem);
   }
 
+  /* The text runs nearly edge to edge here, so the corners keep to the
+     space above and below it: each upright arm stops 1rem short of the text. */
+  .cta__card::before,
+  .cta__card::after {
+    --corner-inset: 1.25rem;
+    height: calc(min(var(--art), var(--art-bl) * 0.62) - 1.25rem);
+  }
+
   .cta__art--bl {
     width: var(--art-bl);
   }
@@ -1798,6 +1829,12 @@ a.contact-method:hover .contact-method__go::after {
   .cta__card {
     padding-block: 2rem;
     box-shadow: none;
+  }
+
+  /* Paper keeps the corners close to the edge, clear of the shorter padding. */
+  .cta__card::before,
+  .cta__card::after {
+    --corner-inset: 0.6rem;
   }
 
   a,
