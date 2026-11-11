@@ -39,6 +39,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `assets/img/` | Original watercolor botanicals (`botanical-*.webp`, plus larger `botanical-corner-tr-lg.webp` and `botanical-corner-bl-lg.webp` for wide screens), favicon, social preview image (`og-image.jpg`) |
 | `tools/generate-botanicals.py` | Paints the botanical artwork (see Design notes) |
 | `tools/make-og-image.py` | Rebuilds the social preview image, `og-image.jpg` (see Design notes) |
+| `tools/stamp-css-version.py` | Updates the `?v=` version tag on every page's stylesheet link (run after changing `styles.css`) |
 | `robots.txt` | Preview-only block on search engines |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 
@@ -59,6 +60,8 @@ git push
 ```
 
 GitHub Pages rebuilds automatically. The site uses relative links, so it works both at the `github.io/...` subpath and at the root of a custom domain.
+
+If the change touches `assets/css/styles.css`, run `python3 tools/stamp-css-version.py` before committing. It updates the `?v=` tag on the stylesheet link in every page, so browsers and phones load the new design straight away. Otherwise they can keep showing a saved copy of the old stylesheet.
 
 ## Before the site goes public
 
