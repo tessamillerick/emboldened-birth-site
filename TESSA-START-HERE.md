@@ -30,6 +30,8 @@ Stop it with `Ctrl+C`.
 - No cookies, analytics, advertising trackers, or contact forms. Contact is by email, phone, or text.
 - Fonts are self-hosted, so no requests go to Google Fonts.
 - The design matches your business card: warm ivory, copper, and deep eucalyptus; Cormorant Garamond with Source Sans 3; and original watercolor eucalyptus painted for the site by `tools/generate-botanicals.py` (no template or stock art).
+- A thin deep green bar across the top of every page says the first consultation is free and links to Contact.
+- On phones and tablets, Home, About and Services have a contact bar at the bottom of the screen (Email, Text, Call), so a visitor can always reach you without scrolling back.
 - The site is currently a noindex preview, not a search-indexed public site.
 
 ## 3. How to update the site
@@ -55,14 +57,14 @@ Your local Git identity is already set to `Tessa Millerick <tessamillerick@users
 
 ## 4. Add your portrait
 
-The home page and the About page each have a framed spot for your photo. Until you add one, it shows a botanical print.
+The home page and the About page each have an arch-shaped frame for your photo. Until you add one, it shows a botanical print.
 
-1. Pick a warm, natural-light photo in portrait (vertical) orientation, at least 1000 × 1250 pixels. The frame crops to a 4:5 shape, so keep your face near the middle.
+1. Pick a warm, natural-light photo in portrait (vertical) orientation, at least 1000 × 1250 pixels. The frame crops to a 4:5 shape and rounds off the top corners into an arch, so your face should sit in the middle, with some room above your head.
 2. Save it in the site folder as `assets/img/tessa-portrait.jpg`.
-3. In `index.html` and `about.html`, find the comment that starts with `PORTRAIT:`. On the line below it, change
+3. In `index.html` and `about.html`, find the comment that starts with `PORTRAIT:`. Two lines below it, change
 
    ```html
-   <img src="assets/img/botanical-bouquet.webp" alt="" width="881" height="1102" fetchpriority="high">
+   <img class="portrait__print" src="assets/img/botanical-bouquet.webp" alt="" width="881" height="1102" fetchpriority="high">
    ```
 
    to
@@ -71,7 +73,7 @@ The home page and the About page each have a framed spot for your photo. Until y
    <img src="assets/img/tessa-portrait.jpg" alt="Tessa Millerick, birth doula" width="1000" height="1250" fetchpriority="high">
    ```
 
-   Use your photo's real width and height, and describe the photo in the `alt` text (for example, “Tessa Millerick smiling outdoors in Hidden Valley Lake”).
+   The new line has no `class`: that is what lets the photo fill the arch edge to edge. Use your photo's real width and height, and describe the photo in the `alt` text (for example, “Tessa Millerick smiling outdoors in Hidden Valley Lake”).
 4. Preview locally, then commit and push (section 3).
 
 You can use two different photos: a portrait on the home page and a candid one on the About page.

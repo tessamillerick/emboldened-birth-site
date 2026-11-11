@@ -36,7 +36,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `TESSA-START-HERE.md` | Plain-language takeover and publishing guide |
 | `assets/css/styles.css` | All styling |
 | `assets/fonts/` | Self-hosted WOFF2 fonts + OFL licenses |
-| `assets/img/` | Original watercolor botanicals (`botanical-*.webp`), favicon, social preview image (`og-image.jpg`) |
+| `assets/img/` | Original watercolor botanicals (`botanical-*.webp`, plus larger `botanical-corner-tr-lg.webp` and `botanical-corner-bl-lg.webp` for wide screens), favicon, social preview image (`og-image.jpg`) |
 | `tools/generate-botanicals.py` | Paints the botanical artwork (see Design notes) |
 | `robots.txt` | Preview-only block on search engines |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is |
@@ -81,7 +81,17 @@ GitHub Pages rebuilds automatically. The site uses relative links, so it works b
 
 ## Design notes
 
-The design follows the business card and the visual-direction notes in the private research repository: warm ivory paper, a copper wordmark and accents, deep eucalyptus labels, thin brass rules, and framed panels like the card front. Headings use Cormorant Garamond; body text, labels, and buttons use Source Sans 3. Every text color meets WCAG AA contrast on every background; sage and brass are used only for decoration.
+The design follows the business card and the visual-direction notes in the private research repository: warm ivory paper, a copper wordmark and accents, deep eucalyptus labels, and thin brass rules. Headings use Cormorant Garamond at regular weight; body text, labels, and buttons use Source Sans 3. Text columns are held to about 70 characters (`--measure`).
+
+- **One deep green** (`--evergreen`, `#2e3b2e`) anchors the pale pages. It is used in four places only: the top bar, the buttons, the phone contact bar, and the footer. Nothing else is dark.
+- **Top bar.** A thin deep green strip on every page: "Free first consultation" (a link to Contact) and the service area, which is hidden on narrow phones.
+- **Header.** Stays at the top of the screen from 1080 px wide, with a "Book a free consultation" button (not on the Contact page). Below that it scrolls away.
+- **Contact bar.** On phones and tablets (below 1080 px), Home, About and Services have a bar at the bottom of the screen with Email, Text and Call. It slides in once the visitor starts scrolling; where a browser cannot do that, or the visitor prefers reduced motion, it is simply always there. Pages that use it have `<body class="has-contact-bar">`.
+- **One framed moment per page.** The business card's double rule frames only the closing card near the foot of Home, About and Services (`.cta__card`). Everything else is open, with single rules at most.
+- **The arch.** The portrait frame on Home and About is an arch (4:5, rounded top). A photo fills it edge to edge.
+- **Motion is CSS only:** a gentle rise as blocks scroll into view (`reveal`), page cross-fades, and sliding FAQ answers. All of it is switched off for visitors who ask for reduced motion.
+
+Every text color meets WCAG AA contrast on its background. On the pale papers, sage and brass are used only for decoration; on the deep green, a lighter brass (`--brass-on-dark`) is used for small text.
 
 The botanical artwork is original. `tools/generate-botanicals.py` paints watercolor eucalyptus with a small pigment model (layered washes, pooled edges, paper grain) and writes the `assets/img/botanical-*.webp` files. It uses no template, stock, or clip-art source, so there is no license to track. Each piece has a fixed seed, so running the script again paints the same pictures:
 
@@ -89,7 +99,11 @@ The botanical artwork is original. `tools/generate-botanicals.py` paints waterco
 python3 tools/generate-botanicals.py                        # repaint assets/img/botanical-*.webp
 python3 tools/generate-botanicals.py --preview              # also save previews on ivory
 python3 tools/generate-botanicals.py --scale 3 --out print-art   # larger masters, e.g. for print
+python3 tools/generate-botanicals.py --scale 1.8 --suffix=-lg --only botanical-corner-tr botanical-corner-bl
+                                                            # the larger corners used on wide screens
 ```
+
+Write `--suffix=-lg` with the equals sign; with a space, the leading hyphen is read as another option. Phones still load the smaller corners through `srcset`.
 
 It needs Python 3 with numpy, Pillow (with WebP), and pycairo. Change a seed or a composition in the script to paint new variations.
 

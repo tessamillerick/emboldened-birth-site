@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Emboldened Birth | Birth Doula in Lake &amp; Sonoma Counties, CA</title>
   <meta name="description" content="Warm, judgment-free birth doula support in Hidden Valley Lake and throughout Lake and Sonoma Counties, California. Meet Tessa Millerick and book a free consultation.">
   <meta name="author" content="Tessa Millerick">
-  <meta name="theme-color" content="#faf6ec">
+  <meta name="theme-color" content="#2e3b2e">
   <!-- PREVIEW ONLY: remove this noindex tag when the site is ready to be public. -->
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
@@ -67,8 +68,12 @@
     ]
   }
   </script>
-</head><body>
+</head><body class="has-contact-bar">
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="announce">
+    <p><a href="contact.html">Free first consultation</a><span class="announce__more"><span class="dot" aria-hidden="true">·</span>Serving Lake &amp; Sonoma Counties</span></p>
+  </div>
 
   <header class="site-header">
     <div class="wrap header-inner">
@@ -76,12 +81,15 @@
         <span class="brand-name">Emboldened Birth</span>
         <span class="brand-by">by Tessa Millerick</span>
       </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      <div class="header-nav">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <a class="btn btn--primary btn--small header-cta" href="contact.html">Book a free consultation</a>
+      </div>
     </div>
   </header>
 
@@ -94,37 +102,47 @@
           <p class="lede">Warm, judgment-free birth support for families across Lake and Sonoma Counties.</p>
           <div class="button-row">
             <a class="btn btn--primary" href="contact.html">Book a free consultation</a>
-            <a class="btn btn--secondary" href="services.html">See the birth package</a>
+            <a class="link" href="services.html">See the birth package</a>
           </div>
           <p class="hero__area">Based in Hidden Valley Lake, California</p>
         </div>
         <figure class="portrait">
           <!-- PORTRAIT: this botanical print is a placeholder. To use Tessa's photo, see "Add your portrait" in TESSA-START-HERE.md. -->
           <div class="portrait__frame">
-            <img src="assets/img/botanical-bouquet.webp" alt="" width="881" height="1102" fetchpriority="high">
+            <img class="portrait__print" src="assets/img/botanical-bouquet.webp" alt="" width="881" height="1102" fetchpriority="high">
           </div>
         </figure>
       </div>
     </section>
 
     <section class="section section--flush-top" aria-labelledby="support-heading">
-      <div class="wrap">
-        <div class="intro">
+      <div class="wrap intro">
+        <div class="reveal">
+          <p class="eyebrow">What a doula does</p>
           <h2 id="support-heading">Support that leaves room for your voice.</h2>
           <p class="lede">A birth doula gives continuous emotional, physical, and informational support before, during, and shortly after birth. Doula care is non-medical: I work alongside your midwife, nurses, or physician, never in place of them.</p>
         </div>
         <ul class="supports">
-          <li>
-            <h3>You are <em>heard</em></h3>
-            <p>I listen first. Your values, your questions, and your hopes set the direction of our work together.</p>
+          <li class="reveal">
+            <span class="supports__n" aria-hidden="true">i.</span>
+            <div>
+              <h3>You are <em>heard</em></h3>
+              <p>I listen first. Your values, your questions, and your hopes set the direction of our work together.</p>
+            </div>
           </li>
-          <li>
-            <h3>You are <em>held</em></h3>
-            <p>Continuous, calm support through labor—and a partner who knows when to step back and let your people care for you.</p>
+          <li class="reveal">
+            <span class="supports__n" aria-hidden="true">ii.</span>
+            <div>
+              <h3>You are <em>held</em></h3>
+              <p>Continuous, calm support through labor—and a partner who knows when to step back and let your people care for you.</p>
+            </div>
           </li>
-          <li>
-            <h3>You are <em>prepared</em></h3>
-            <p>Evidence-based information in plain language, and time to think through your options without pressure.</p>
+          <li class="reveal">
+            <span class="supports__n" aria-hidden="true">iii.</span>
+            <div>
+              <h3>You are <em>prepared</em></h3>
+              <p>Evidence-based information in plain language, and time to think through your options without pressure.</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -132,12 +150,12 @@
 
     <section class="section section--oat" aria-labelledby="research-heading">
       <div class="wrap">
-        <div class="section-head section-head--center">
+        <div class="section-head section-head--center reveal">
           <p class="eyebrow">What the research says</p>
           <h2 id="research-heading">Why continuous support matters.</h2>
           <p class="lede">In a 2017 Cochrane review of 26 trials and 15,858 women, continuous support during labor was linked to:</p>
         </div>
-        <ul class="stats">
+        <ul class="stats reveal">
           <li class="stat">
             <p class="stat__figure">25%</p>
             <p class="stat__label">lower relative risk of cesarean birth</p>
@@ -156,18 +174,21 @@
     </section>
 
     <section class="section meet" aria-labelledby="meet-heading">
-      <div class="wrap narrow center">
-        <div class="sprig-divider"><img src="assets/img/botanical-sprig.webp" alt="" width="720" height="300" loading="lazy" decoding="async"></div>
-        <h2 id="meet-heading">A steady presence for your birth.</h2>
-        <p class="lede">I’m Tessa, a birth doula in Hidden Valley Lake and a mother of five boys.</p>
-        <p>I came to this work through my own births. I know what it means to be truly heard in the birth room—and what it costs when you’re not. Now I support families across Lake and Sonoma Counties in having the empowered, transformative birth they want.</p>
-        <p><a class="link" href="about.html">More about Tessa</a></p>
+      <img class="meet__art" src="assets/img/botanical-corner-bl.webp" srcset="assets/img/botanical-corner-bl.webp 733w, assets/img/botanical-corner-bl-lg.webp 1317w" sizes="(min-width: 1512px) 544px, 36vw" alt="" width="1317" height="798" loading="lazy" decoding="async">
+      <div class="wrap">
+        <div class="meet__body reveal">
+          <p class="eyebrow">Meet Tessa</p>
+          <h2 id="meet-heading">A steady presence for your birth.</h2>
+          <p class="lede">I’m Tessa, a birth doula in Hidden Valley Lake and a mother of five boys.</p>
+          <p>I came to this work through my own births. I know what it means to be truly heard in the birth room—and what it costs when you’re not. Now I support families across Lake and Sonoma Counties in having the empowered, transformative birth they want.</p>
+          <p><a class="link" href="about.html">More about Tessa</a></p>
+        </div>
       </div>
     </section>
 
     <section class="section section--sage" aria-labelledby="package-heading">
       <div class="wrap package">
-        <div>
+        <div class="reveal">
           <p class="eyebrow">The birth package</p>
           <h2 id="package-heading">Support from pregnancy through the first days home.</h2>
           <ul class="checklist">
@@ -179,7 +200,7 @@
           </ul>
           <p><a class="link" href="services.html">See everything that’s included</a></p>
         </div>
-        <aside class="price-card" aria-label="Birth package rate">
+        <aside class="price-card reveal" aria-label="Birth package rate">
           <p class="price-card__label">Introductory rate</p>
           <p class="price-card__price">$750</p>
           <p class="price-card__name">Birth package</p>
@@ -192,7 +213,7 @@
 
     <section class="cta" aria-labelledby="cta-heading">
       <div class="wrap">
-        <div class="cta__card">
+        <div class="cta__card reveal">
           <img class="cta__art cta__art--tr" src="assets/img/botanical-corner-tr.webp" alt="" width="681" height="677" loading="lazy" decoding="async">
           <img class="cta__art cta__art--bl" src="assets/img/botanical-corner-bl.webp" alt="" width="733" height="445" loading="lazy" decoding="async">
           <h2 id="cta-heading">You don’t have to have it all figured out.</h2>
@@ -210,9 +231,9 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <img class="footer-sprig" src="assets/img/botanical-sprig.webp" alt="" width="720" height="300" loading="lazy" decoding="async">
           <p class="footer-brand">Emboldened Birth</p>
           <p class="footer-by">by Tessa Millerick</p>
+          <p class="footer-tagline">Feel heard. Feel held. Own your birth.</p>
           <p class="footer-description">Birth doula support in Hidden Valley Lake and throughout Lake and Sonoma Counties, California.</p>
         </div>
         <nav aria-label="Footer navigation">
@@ -239,5 +260,20 @@
       </div>
     </div>
   </footer>
+
+  <nav class="contact-bar" aria-label="Contact Tessa">
+    <a href="mailto:hello@emboldenedbirth.com?subject=Free%20consultation&amp;body=Hi%20Tessa%2C%0A%0AI%E2%80%99d%20like%20to%20set%20up%20a%20free%20consultation.%0A%0AMy%20due%20date%3A%20%0AWhere%20I%E2%80%99m%20planning%20to%20give%20birth%3A%20%0AWhat%20I%E2%80%99m%20hoping%20for%3A%20%0A%0AMy%20name%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6h17v12h-17z"/><path d="m4 6.5 8 6.5 8-6.5"/></svg>
+      Email
+    </a>
+    <a href="sms:+17078894516?&amp;body=Hi%20Tessa%2C%20I%E2%80%99d%20like%20to%20set%20up%20a%20free%20consultation.%20My%20name%20is%20">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5h15V16h-8.2L7 19.5V16H4.5z"/></svg>
+      Text
+    </a>
+    <a href="tel:+17078894516">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.2 3.8 9.1 3.5l1.5 4-2 1.6a9.5 9.5 0 0 0 4.9 4.9l1.6-2 4 1.5-.3 2.9a1.8 1.8 0 0 1-1.8 1.6C9.8 18 4.6 12.8 4.6 5.6a1.8 1.8 0 0 1 1.6-1.8z"/></svg>
+      Call
+    </a>
+  </nav>
 </body>
 </html>

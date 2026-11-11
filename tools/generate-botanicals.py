@@ -6,6 +6,8 @@ Run from the repository root:
     python3 tools/generate-botanicals.py               # writes assets/img/botanical-*.webp
     python3 tools/generate-botanicals.py --preview     # also writes previews on ivory
     python3 tools/generate-botanicals.py --scale 3     # larger masters, e.g. for print
+    python3 tools/generate-botanicals.py --scale 1.8 --suffix=-lg --only botanical-corner-tr botanical-corner-bl
+                                                       # the larger corners used on wide screens
 
 Needs Python 3 with numpy, Pillow (with WebP support) and pycairo.
 
@@ -725,6 +727,7 @@ def main():
     parser.add_argument("--scale", type=float, default=1.0, help="size multiplier (default: 1)")
     parser.add_argument("--preview", action="store_true", help="also write previews on ivory")
     parser.add_argument("--only", nargs="*", help="paint only these pieces")
+    parser.add_argument("--suffix", default="", help="text added to each file name, e.g. -lg")
     args = parser.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -732,8 +735,8 @@ def main():
         if args.only and name not in args.only:
             continue
         painter = compose(args.scale)
-        target = out / f"{name}.webp"
-        preview = out / f"{name}-preview.png" if args.preview else None
+        target = out / f"{name}{args.suffix}.webp"
+        preview = out / f"{name}{args.suffix}-preview.png" if args.preview else None
         if anchor and ":" in anchor:
             painter.export(target, preview, aspect=tuple(int(v) for v in anchor.split(":")))
         else:
