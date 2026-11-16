@@ -37,6 +37,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `assets/css/styles.css` | All styling |
 | `assets/fonts/` | Self-hosted WOFF2 fonts + OFL licenses |
 | `assets/img/` | Original watercolor botanicals (`botanical-*.webp`, plus larger `botanical-corner-tr-lg.webp` and `botanical-corner-bl-lg.webp` for wide screens), the logo's mark (`logo-mark.svg`, and `logo-mark-on-green.svg` for the footer), browser-tab icons (`favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`), social preview image (`og-image.jpg`) |
+| `brand/print-files/` | Logo + name artwork for hats and shirts, full color and one color (see its README) |
 | `tools/generate-botanicals.py` | Paints the botanical artwork (see Design notes) |
 | `tools/make-og-image.py` | Rebuilds the social preview image, `og-image.jpg` (see Design notes) |
 | `tools/stamp-css-version.py` | Updates the `?v=` version tag on every page's stylesheet link (run after changing `styles.css`) |
