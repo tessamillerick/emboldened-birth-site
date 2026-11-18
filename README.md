@@ -68,7 +68,8 @@ If the change touches `assets/css/styles.css`, run `python3 tools/stamp-css-vers
 - [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 deposit / $500 balance. Confirm these before launch.
 - [x] Free consultation decided (2026-11-10): the site advertises a free, no-obligation first consultation.
 - [x] Service area confirmed: **Lake and Sonoma Counties**. The site lists the Lake County cities and Sonoma County by arrangement. Confirm whether travel beyond those counties is offered.
-- [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not add “certified” until certification is complete.
+- [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not call Tessa a certified doula until CD(DONA) is complete.
+- [x] CPR added to the About page (2026-11-17): American Red Cross Adult and Pediatric First Aid/CPR/AED, **valid until 2028-11-17**. Before then, renew it or remove the CPR sentence and the CPR line in the facts list.
 - [ ] Confirm the backup-doula sentence (“Before services begin, I’ll name a backup doula…”).
 - [ ] Add Tessa's portrait. The home page and About page each have a framed spot that currently holds a botanical print; see “Add your portrait” in `TESSA-START-HERE.md`. No stock photos or client images.
 - [ ] Remove the `noindex` meta tag from every page. It is marked with `PREVIEW ONLY`.
