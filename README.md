@@ -65,7 +65,7 @@ If the change touches `assets/css/styles.css`, run `python3 tools/stamp-css-vers
 
 ## Before the site goes public
 
-- [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 deposit / $500 balance. Confirm these before launch.
+- [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 retainer / $500 balance (“retainer”, the contract’s word, since 2026-11-18). Confirm these before launch.
 - [x] Free consultation decided (2026-11-10): the site advertises a free, no-obligation first consultation.
 - [x] Service area confirmed: **Lake and Sonoma Counties**. The site lists the Lake County cities and Sonoma County by arrangement. Confirm whether travel beyond those counties is offered.
 - [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not call Tessa a certified doula until CD(DONA) is complete.

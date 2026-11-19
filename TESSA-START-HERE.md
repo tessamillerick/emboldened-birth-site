@@ -80,7 +80,7 @@ You can use two different photos: a portrait on the home page and a candid one o
 
 ## 5. Before the site goes public and searchable
 
-- Confirm the services and the **$750 introductory rate**, including the $250 deposit and $500 balance.
+- Confirm the services and the **$750 introductory rate**, including the $250 retainer and $500 balance (the contract’s word, used on the site since 2026-11-18).
 - Service area confirmed: **Lake and Sonoma Counties**. Confirm whether travel beyond those counties is offered.
 - Confirm the training wording: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not claim doula certification until CD(DONA) is complete.
 - Your CPR certification (American Red Cross, valid until **November 17, 2028**) is on the About page. Renew it before then, or take the CPR sentence and the CPR line off the page.
