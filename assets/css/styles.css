@@ -965,6 +965,34 @@ h2 + p {
   color: var(--ink-soft);
 }
 
+/* Resources: categories open like the FAQ; each listing inside is a name, a note, and contact lines. */
+
+.resource + .resource {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.resource__name {
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.resource__contact {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resource__contact li + li {
+  margin-top: 0.3rem;
+}
+
+.resources__note {
+  max-width: 50rem;
+  margin: 2rem auto 0;
+}
+
 /* Heading beside its text: service area, training ------------------------------------ */
 
 .area {
@@ -1714,11 +1742,12 @@ a.contact-method:hover .contact-method__go::after {
   }
 
   .site-nav {
-    gap: 0 1.1rem;
+    gap: 0 0.85rem;
   }
 
   .site-nav a {
-    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
   }
 
   .hero__area {

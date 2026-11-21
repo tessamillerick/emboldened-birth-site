@@ -10,7 +10,7 @@ The site is intentionally simple:
 
 - Plain HTML, CSS, and SVG. No framework, no build step, no JavaScript.
 - Self-hosted fonts (Cormorant Garamond and Source Sans 3, both SIL Open Font License).
-- Four main pages: Home, About, Services, Contact. Plus a privacy page and a 404 page.
+- Five main pages: Home, About, Services, Resources, Contact. Plus a privacy page and a 404 page.
 - No contact form, cookies, analytics, or third-party scripts. Contact is by email, phone, or text.
 
 ## Preview locally
@@ -30,6 +30,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `index.html` | Home page |
 | `about.html` | Tessa's story, approach, training |
 | `services.html` | Birth package, investment, FAQ, service area |
+| `resources.html` | Local community resources, in categories that open when tapped (same style as the FAQ) |
 | `contact.html` | Email, phone, what to include, next steps |
 | `privacy.html` | Plain-language privacy note |
 | `404.html` | GitHub Pages not-found page |
