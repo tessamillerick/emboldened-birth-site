@@ -48,7 +48,7 @@ body { display: grid; place-items: center; background: #f2ebdd; font-family: "So
 <div class="inner">
 <div class="name">Emboldened Birth</div>
 <div class="by">by Tessa Millerick</div>
-<div class="role">Birth doula · Lake &amp; Sonoma Counties</div>
+<div class="role">Birth doula · Lake, Sonoma &amp; Napa Counties</div>
 <div class="tag">Feel heard. Feel held. Own your birth.</div>
 </div></div></body></html>
 """

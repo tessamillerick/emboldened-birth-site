@@ -4,7 +4,7 @@
 >
 > **Live preview:** <https://tessamillerick.github.io/emboldened-birth-site/>
 
-A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, serving Lake and Sonoma Counties, California.
+A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, serving Lake, Sonoma, and Napa Counties, California.
 
 The site is intentionally simple:
 
@@ -68,7 +68,7 @@ If the change touches `assets/css/styles.css`, run `python3 tools/stamp-css-vers
 
 - [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 retainer / $500 balance (“retainer”, the contract’s word, since 2026-11-18). Confirm these before launch.
 - [x] Free consultation decided (2026-11-10): the site advertises a free, no-obligation first consultation.
-- [x] Service area confirmed: **Lake and Sonoma Counties**. The site lists the Lake County cities and Sonoma County by arrangement. Confirm whether travel beyond those counties is offered.
+- [x] Service area confirmed: **Lake, Sonoma, and Napa Counties** (Napa added 2026-11-23). The site lists the Lake County cities by name. Confirm whether travel beyond those counties is offered.
 - [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not call Tessa a certified doula until CD(DONA) is complete.
 - [x] CPR added to the About page (2026-11-17): American Red Cross Adult and Pediatric First Aid/CPR/AED, **valid until 2028-11-17**. Before then, renew it or remove the CPR sentence and the CPR line in the facts list.
 - [ ] Confirm the backup-doula sentence (“Before services begin, I’ll name a backup doula…”).
