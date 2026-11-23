@@ -1,12 +1,12 @@
 # Tessa — start here
 
-Your website is live as a **preview**:
+Your website is public at **<https://emboldenedbirth.com/>** (launched November 23, 2026):
 
-- **Live preview:** <https://tessamillerick.github.io/emboldened-birth-site/>
+- **Website:** <https://emboldenedbirth.com/> (the old preview address now forwards there)
 - **GitHub repository:** <https://github.com/tessamillerick/emboldened-birth-site>
 - **Local folder:** `/home/sean/emboldened-birth-site`
 
-The site is not searchable yet. Every page has a `noindex` tag, and `robots.txt` blocks search engines. The custom domain `emboldenedbirth.com` is still parked; no DNS changes were made, and Proton mail records were not touched.
+Search engines may list it now; it can take a few weeks before it shows up in Google. The domain's DNS is at Porkbun. Your Proton email records there were left exactly as they were: never delete the MX, TXT, `_dmarc` or `protonmail…_domainkey` records.
 
 ## 1. See it
 
@@ -32,7 +32,7 @@ Stop it with `Ctrl+C`.
 - The design matches your business card: warm ivory, copper, and deep eucalyptus; Cormorant Garamond with Source Sans 3; and original watercolor eucalyptus painted for the site by `tools/generate-botanicals.py` (no template or stock art).
 - A thin deep green bar across the top of every page says the first consultation is free and links to Contact.
 - On phones and tablets, Home, About and Services have a contact bar at the bottom of the screen (Email, Text, Call), so a visitor can always reach you without scrolling back.
-- The site is currently a noindex preview, not a search-indexed public site.
+- The site is public, and search engines are allowed to list it.
 
 ## 3. How to update the site
 
@@ -78,19 +78,15 @@ The home page and the About page each have an arch-shaped frame for your photo. 
 
 You can use two different photos: a portrait on the home page and a candid one on the About page.
 
-## 5. Before the site goes public and searchable
+## 5. Still to do, and things to keep true
 
-- Confirm the services and the **$750 introductory rate**, including the $250 retainer and $500 balance (the contract’s word, used on the site since 2026-11-18).
+- The **$750 introductory rate** wording is confirmed (2026-11-23): $250 retainer, and the $500 balance due 4 weeks before the due date. Keep it matching the contract.
 - Service area confirmed: **Lake, Sonoma, and Napa Counties**. Confirm whether travel beyond those counties is offered.
-- Confirm the training wording: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not claim doula certification until CD(DONA) is complete.
 - Your CPR certification (American Red Cross, valid until **November 17, 2028**) is on the About page. Renew it before then, or take the CPR sentence and the CPR line off the page.
-- Confirm the backup-doula sentence.
 - Free consultation: decided. The site says the first consultation is free, with no obligation.
 - Add your portrait (section 4).
-- Remove the `noindex` meta tag from every page.
-- Replace `robots.txt` with an allow rule.
-- Add the custom domain only after a separate DNS review. Keep Proton's MX, SPF, DKIM, DMARC, and verification records intact.
-- Optional: add a sitemap and canonical links once the domain is live.
+- No backup doula is mentioned anywhere on the site until you have a backup you know is reliable. Ask to have it put back then.
+- Don't call yourself a certified doula until CD(DONA) is complete.
 
 ## 6. If something goes wrong
 

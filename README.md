@@ -43,13 +43,13 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `robots.txt` | Preview-only block on search engines |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 
-## Published preview
+## Published site
 
-- **Live:** <https://tessamillerick.github.io/emboldened-birth-site/>
+- **Live:** <https://emboldenedbirth.com/>
 - **Repository:** <https://github.com/tessamillerick/emboldened-birth-site>
 - **Pages:** deploys from `main`, folder `/ (root)`.
 
-The site is currently a **noindex preview**: every page has a `noindex` tag and `robots.txt` blocks search engines.
+**Public since 2026-11-23 at <https://emboldenedbirth.com/>.** The `CNAME` file holds the domain; DNS is at Porkbun (four GitHub Pages A records for the domain, `www` CNAME to `tessamillerick.github.io`; Proton's mail records unchanged). The github.io address redirects to the domain. Search engines are allowed (`robots.txt`, `sitemap.xml`); only `404.html` keeps a `noindex` tag. Each page has a canonical link.
 
 To update it, commit and push:
 
@@ -63,20 +63,20 @@ GitHub Pages rebuilds automatically. The site uses relative links, so it works b
 
 If the change touches `assets/css/styles.css`, run `python3 tools/stamp-css-version.py` before committing. It updates the `?v=` tag on the stylesheet link in every page, so browsers and phones load the new design straight away. Otherwise they can keep showing a saved copy of the old stylesheet.
 
-## Before the site goes public
+## Launch checklist
 
-- [ ] Confirm the public wording for services and the **$750 introductory rate**, including the $250 retainer / $500 balance (“retainer”, the contract’s word, since 2026-11-18). Confirm these before launch.
+- [x] Public wording for the **$750 introductory rate** confirmed by Tessa 2026-11-23: $250 retainer, and the $500 balance due 4 weeks before the due date.
 - [x] Free consultation decided (2026-11-10): the site advertises a free, no-obligation first consultation.
 - [x] Service area confirmed: **Lake, Sonoma, and Napa Counties** (Napa added 2026-11-23). The site lists the Lake County cities by name. Confirm whether travel beyond those counties is offered.
-- [ ] Confirm the training sentence: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not call Tessa a certified doula until CD(DONA) is complete.
+- [x] Training sentence confirmed by Tessa 2026-11-23: DONA-approved Birth Doula Workshop with Birthing Gently (Tara Campbell), working toward CD(DONA). Do not call Tessa a certified doula until CD(DONA) is complete.
 - [x] CPR added to the About page (2026-11-17): American Red Cross Adult and Pediatric First Aid/CPR/AED, **valid until 2028-11-17**. Before then, renew it or remove the CPR sentence and the CPR line in the facts list.
 - [x] Backup doula: **every mention removed 2026-11-23 at Tessa's request** (Home package list, Services list and descriptions, About), until she has a backup she knows is reliable. Put it back then.
-- [ ] Add Tessa's portrait. The home page and About page each have a framed spot that currently holds a botanical print; see “Add your portrait” in `TESSA-START-HERE.md`. No stock photos or client images.
-- [ ] Remove the `noindex` meta tag from every page. It is marked with `PREVIEW ONLY`.
-- [ ] Replace `robots.txt` with an allow rule.
-- [ ] Add a `CNAME` file and DNS records only after a separate domain/DNS review. **Do not change or remove Proton mail records**: MX, SPF, DKIM CNAMEs, DMARC, and the Proton verification TXT.
-- [ ] Update `og:url` and `og:image` if the final address differs from `https://emboldenedbirth.com/`.
-- [ ] Add a sitemap and canonical links if desired after the domain is live.
+- [ ] Add Tessa's portrait (launched without it, 2026-11-23). The home page and About page each have a framed spot that currently holds a botanical print; see “Add your portrait” in `TESSA-START-HERE.md`. No stock photos or client images.
+- [x] `noindex` removed from every page except `404.html` (2026-11-23).
+- [x] `robots.txt` allows search engines and names the sitemap (2026-11-23).
+- [x] `CNAME` file and DNS records (2026-11-23). **Never change or remove Proton mail records**: MX, SPF, DKIM CNAMEs, DMARC, and the Proton verification TXT.
+- [x] `og:url` and `og:image` already use `https://emboldenedbirth.com/`.
+- [x] `sitemap.xml` and canonical links added (2026-11-23). Add a page to the sitemap when one is added to the site.
 
 ## Privacy and content rules
 
