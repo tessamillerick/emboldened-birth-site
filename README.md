@@ -2,7 +2,7 @@
 
 > **Taking over?** Start with [TESSA-START-HERE.md](TESSA-START-HERE.md).
 >
-> **Live preview:** <https://tessamillerick.github.io/emboldened-birth-site/>
+> **Live site:** <https://emboldenedbirth.com/>
 
 A small, plain static website for **Emboldened Birth by Tessa Millerick**, a birth doula practice in Hidden Valley Lake, serving Lake, Sonoma, and Napa Counties, California.
 
@@ -40,7 +40,9 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `tools/generate-botanicals.py` | Paints the botanical artwork (see Design notes) |
 | `tools/make-og-image.py` | Rebuilds the social preview image, `og-image.jpg` (see Design notes) |
 | `tools/stamp-css-version.py` | Updates the `?v=` version tag on every page's stylesheet link (run after changing `styles.css`) |
-| `robots.txt` | Preview-only block on search engines |
+| `robots.txt` | Allows search engines and points to the sitemap |
+| `sitemap.xml` | The five public pages, for search engines |
+| `CNAME` | The custom domain, `emboldenedbirth.com` (GitHub writes this file; leave it alone) |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 
 ## Published site
@@ -49,7 +51,7 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 - **Repository:** <https://github.com/tessamillerick/emboldened-birth-site>
 - **Pages:** deploys from `main`, folder `/ (root)`.
 
-**Public since 2026-11-23 at <https://emboldenedbirth.com/>.** The `CNAME` file holds the domain; DNS is at Porkbun (four GitHub Pages A records for the domain, `www` CNAME to `tessamillerick.github.io`; Proton's mail records unchanged). The github.io address redirects to the domain. Search engines are allowed (`robots.txt`, `sitemap.xml`); only `404.html` keeps a `noindex` tag. Each page has a canonical link.
+**Public since 2026-11-23 at <https://emboldenedbirth.com/>.** The `CNAME` file holds the domain; DNS is at Porkbun (four GitHub Pages A records for the domain, `www` CNAME to `tessamillerick.github.io`; Proton's mail records unchanged). The github.io address and `www` redirect to the domain. HTTPS is enforced; GitHub's Let's Encrypt certificate covers the domain and `www` and renews itself. If it ever stops renewing, clear and re-save the custom domain in the repository's Pages settings (that is what got the first certificate issued). Search engines are allowed (`robots.txt`, `sitemap.xml`); only `404.html` keeps a `noindex` tag. Each page has a canonical link.
 
 To update it, commit and push:
 

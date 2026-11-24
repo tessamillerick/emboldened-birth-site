@@ -10,7 +10,7 @@ Search engines may list it now; it can take a few weeks before it shows up in Go
 
 ## 1. See it
 
-Open the live preview above, or preview locally:
+Open the website above, or preview locally:
 
 **http://127.0.0.1:8000**
 
@@ -45,7 +45,7 @@ git commit -m "Describe the change"
 git push
 ```
 
-GitHub Pages rebuilds automatically after a push. It usually takes about a minute. Check the live preview afterward.
+GitHub Pages rebuilds automatically after a push. It usually takes about a minute. Check the website afterward.
 
 Your GitHub account is active on this machine. You can confirm with:
 
@@ -116,6 +116,6 @@ Do not remove them until your account and the repository are working. The first 
 ## 8. Where things live
 
 - Website: `/home/sean/emboldened-birth-site`
-- Live preview: <https://tessamillerick.github.io/emboldened-birth-site/>
+- Website: <https://emboldenedbirth.com/>
 - Planning handoff: `/home/sean/emboldened-birth-handoff-2026-10-27`
 - Private research repository: `/home/sean/doula-cert-ca`
