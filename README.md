@@ -11,7 +11,7 @@ The site is intentionally simple:
 - Plain HTML, CSS, and SVG. No framework, no build step, no JavaScript.
 - Self-hosted fonts (Cormorant Garamond and Source Sans 3, both SIL Open Font License).
 - Four main pages: Home, About, Services, Contact. Plus a privacy page and a 404 page.
-- No contact form, cookies, analytics, or third-party scripts. Contact is by email, phone, or text.
+- No cookies, analytics, or third-party scripts. Contact is by a contact form (posted to FormSubmit, formsubmit.co, which emails hello@emboldenedbirth.com; no JavaScript) or email. No phone number on the site.
 
 ## Preview locally
 
@@ -30,7 +30,8 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 | `index.html` | Home page |
 | `about.html` | Tessa's story, approach, training |
 | `services.html` | Birth package, investment, FAQ, service area |
-| `contact.html` | Email, phone, what to include, next steps |
+| `contact.html` | Contact form (name, phone, email, optional due date and message), email, next steps |
+| `thanks.html` | Shown after the contact form is sent (not indexed) |
 | `privacy.html` | Plain-language privacy note |
 | `404.html` | GitHub Pages not-found page |
 | `TESSA-START-HERE.md` | Plain-language takeover and publishing guide |
@@ -93,7 +94,7 @@ The design follows the business card and the visual-direction notes in the priva
 - **One deep green** (`--evergreen`, `#2e3b2e`) anchors the pale pages. It is used in four places only: the top bar, the buttons, the phone contact bar, and the footer. Nothing else is dark.
 - **Top bar.** A thin deep green strip on every page: "Free first consultation" (a link to Contact) and the service area, which is hidden on narrow phones.
 - **Header.** Stays at the top of the screen from 1080 px wide, with a "Book a free consultation" button (not on the Contact page). Below that it scrolls away.
-- **Contact bar.** On phones and tablets (below 1080 px), Home, About and Services have a bar at the bottom of the screen with Email, Text and Call. It slides in once the visitor starts scrolling; where a browser cannot do that, or the visitor prefers reduced motion, it is simply always there. Pages that use it have `<body class="has-contact-bar">`.
+- **Contact bar.** On phones and tablets (below 1080 px), Home, About and Services have a bar at the bottom of the screen with Email and Free consult (links to the contact form). It slides in once the visitor starts scrolling; where a browser cannot do that, or the visitor prefers reduced motion, it is simply always there. Pages that use it have `<body class="has-contact-bar">`.
 - **One framed moment per page.** The closing card near the foot of Home, About and Services (`.cta__card`) carries the business card's open frame: two brass corners where the eucalyptus leaves room (top left and bottom right), with no full border. On wide screens they keep the card's proportions; on narrow screens, where the text runs nearly edge to edge, they stay in the space above and below it. Everything else is open, with single rules at most.
 - **The arch.** The portrait frame on Home and About is an arch (4:5, rounded top). A photo fills it edge to edge.
 - **The logo.** The logo's mark, a eucalyptus stem growing up inside an open arch, sits beside the wordmark in the header, so the two read as the horizontal logo while the name stays real text. In its deep green colours it sits above the wordmark in the footer, and a heavier version drawn for small sizes is the browser-tab icon. The icon links end in `?v=arch` so browsers drop the old icon; change that tag if the icons change again.

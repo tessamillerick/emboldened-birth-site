@@ -1212,6 +1212,100 @@ a.contact-method:hover .contact-method__go::after {
   margin-block: 0.75rem 1.5rem;
 }
 
+/* Contact form ------------------------------------------------------------------------ */
+
+.consult-form {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.25rem;
+}
+
+.field label {
+  color: var(--eucalyptus);
+  font-size: 0.78125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.field__optional {
+  color: var(--ink-soft);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--paper-card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.0625rem; /* 17px: stops phones zooming in on tap */
+  line-height: 1.4;
+}
+
+.field textarea {
+  min-height: 7.5rem;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.65;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 1px;
+  border-color: var(--copper);
+}
+
+.consult-form .btn {
+  justify-self: start;
+  cursor: pointer;
+}
+
+.consult-form .small {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* Hidden trap field: people never see it, spam bots fill it in. */
+.consult-form__honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-methods--aside {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-methods--aside .contact-method__value {
+  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.45rem);
+}
+
 /* Closing card: the one framed moment, echoing the business card -------------------- */
 
 .cta {
@@ -1593,7 +1687,7 @@ a.contact-method:hover .contact-method__go::after {
     left: 0;
     z-index: 60;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     padding-bottom: env(safe-area-inset-bottom, 0px);
     border-top: 1px solid var(--rule-on-dark);
     background: var(--evergreen);
@@ -1832,6 +1926,10 @@ a.contact-method:hover .contact-method__go::after {
 
   .cta__direct .dot {
     display: none;
+  }
+
+  .consult-form .btn {
+    justify-self: stretch;
   }
 }
 
