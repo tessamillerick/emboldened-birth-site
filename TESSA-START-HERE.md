@@ -25,13 +25,13 @@ Stop it with `Ctrl+C`.
 
 ## 2. What is here
 
-- Home, About, Services, Contact, Privacy, and a custom 404 page.
+- Home, About, Services, Contact, Privacy, a thank-you page shown after the contact form, and a custom 404 page.
 - Plain HTML and CSS. No build step and no JavaScript.
-- No cookies, analytics, advertising trackers, or contact forms. Contact is by email, phone, or text.
+- No cookies, analytics, or advertising trackers. Contact is by the contact form or email (your phone number is not on the site). The form is sent to hello@emboldenedbirth.com by FormSubmit (formsubmit.co); the very first time someone uses it, FormSubmit emails you an "Activate" link you must click once.
 - Fonts are self-hosted, so no requests go to Google Fonts.
 - The design matches your business card: warm ivory, copper, and deep eucalyptus; Cormorant Garamond with Source Sans 3; and original watercolor eucalyptus painted for the site by `tools/generate-botanicals.py` (no template or stock art).
 - A thin deep green bar across the top of every page says the first consultation is free and links to Contact.
-- On phones and tablets, Home, About and Services have a contact bar at the bottom of the screen (Email, Text, Call), so a visitor can always reach you without scrolling back.
+- On phones and tablets, Home, About and Services have a contact bar at the bottom of the screen (Email and Free consult, which opens the contact form), so a visitor can always reach you without scrolling back.
 - The site is public, and search engines are allowed to list it.
 
 ## 3. How to update the site
